@@ -6,6 +6,76 @@
      font-family: "Inter", sans-serif;
 }
 
+.navbar{
+    background-color: #ff5200;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar .logo-cont h3{
+    color: white;
+}
+
+.navbar .link-cont{
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.navbar .link-cont ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+.navbar .icon-cart{
+    margin-bottom: -2px;
+    font-size: 20px;
+}
+
+.cart{
+    position: relative;
+}
+
+.cart-num{
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    font-size: 10px;
+    background-color: white;
+    color: orange;
+    border-radius: 100%;
+    padding: 2px 5px;
+}
+
+.navbar button{
+    background-color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    color: #ff5200;
+    font-weight: 600;
+}
+
 .products-grid{
     display: flex;
     justify-content: center;
@@ -22,7 +92,12 @@
     width: 300px;
     height: 350px;
     overflow: hidden;
+    transition: 0.2s;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.card:hover{
+    transform: scale(1.03);
 }
 
 .card h3{
@@ -72,3 +147,188 @@
 .icon-s{
     font-size: 18px;
 }
+
+.order-page-cont{
+    margin: 40px auto;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 30px;
+}
+
+.order-page-cont h1{
+    color: #ff5200;
+}
+
+.order-page-cont .form-cont{
+    margin: 30px 0px;
+    display: flex;
+    justify-content: center;
+    align-items:start;
+    flex-direction: column;
+}
+
+.order-page-cont .form-cont label{
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.order-page-cont .form-cont input{
+    border: 2px solid #ff5200;
+    border-radius: 7px;
+    padding: 5px;
+    width: 100%;
+    outline: none;
+}
+
+.order-page-cont .form-cont input:focus{
+    box-shadow: 0px 0px 0px 3px #ff51006e;
+}
+
+.order-page-cont .form-cont button{
+    margin-top: 20px;
+    background-color: #ff5200;
+    padding: 7px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    align-self: center;
+    cursor: pointer;
+}
+
+.order-page-cont textarea{
+    border: 2px solid #ff5200;
+    border-radius: 5px;
+    width: 100%;
+    resize: none;
+    height: 100px;
+    outline: none;
+}
+
+.order-page-cont textarea:focus{
+    box-shadow: 0px 0px 0px 3px #ff51006e;
+}
+
+.order-page-cont .order-info{
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    text-align: start;
+    gap: 10px;
+}
+
+.order-page-cont .order-info img{
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.order-page-cont select{
+    outline: none;
+    border: 2px solid #ff5200;
+    border-radius: 5px;
+    padding: 2px 3px;
+}
+
+.order-page-cont .order-info h3{
+    color: #ff5200;
+}
+
+.order-page-cont .order-info p{
+    color: gray;
+}
+
+.order-page-cont .order-info .quant-cont{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.order-page-cont .order-info .quant-cont select{
+    color: white;
+    border: none;
+    padding: 2px 3px;
+    border-radius: 5px;
+    outline: none;
+    background-color: #ff5200;
+}
+
+.order-page-cont .order-info .border-line{
+    width: 100%;
+    border-top: 2px dashed rgb(212, 212, 212);
+}
+
+.login-page-cont{
+    width: 400px;
+    height: 400px;
+    margin: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.login-page-cont h3{
+    text-align: center;
+    color: #ff5200;
+    margin-bottom: 30px;
+}
+
+.login-page-cont form{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+.login-page-cont form label{
+    color: #ff5100da;
+}
+
+.login-page-cont form input{
+    padding: 5px;
+    border: 2px solid #ff5200;
+    border-radius: 7px;
+    outline: none;
+    width: 95%;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.login-page-cont form input:focus{
+    box-shadow: 0px 0px 0px 3px #ff51006e;
+}
+
+.login-page-cont form button{
+    color: white;
+    background-color: #ff5200;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    align-self: center;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.login-page-cont .reg-link , .login-page-cont .login-link{
+    text-align: center;
+    padding: 10px;
+}
+
+.login-page-cont .reg-link a , .login-page-cont .login-link a{
+    text-decoration: none;
+    color: #ff5200;
+    font-weight: 700;
+}
+
