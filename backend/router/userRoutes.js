@@ -39,13 +39,13 @@ Router.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
     try {
         const exists = await User.findOne({ email });
-        if (exists) return res.status(400).json({ msg: "User already exists" });
+        if (exists) return res.status(400).json({ msg: "User already exists" , status : false});
 
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ name, email, password: hashedPassword });
         await newUser.save();
 
-        res.status(201).json({ msg: "User registered" });
+        res.status(201).json({ msg: "User registered" , status : true});
     } catch (err) {
         res.status(500).json({ msg: "Server error" });
     }
