@@ -14,7 +14,7 @@ const PORT = 5000
 dotenv.config()
 
 
-app.use(cors({ origin: "http://localhost:5173" }));  // Frontend URL (React default port)
+app.use(cors({ origin: "http://localhost:5173" ,  credentials: true}));  // Frontend URL (React default port)
 
 app.use(cookieParser());
 app.use(bodyParser.json())

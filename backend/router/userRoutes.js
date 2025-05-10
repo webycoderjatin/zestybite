@@ -56,10 +56,10 @@ Router.post("/login", async (req, res) => {
     const { email, password } = req.body;
     try {
         const user = await User.findOne({ email });
-        if (!user) return res.status(400).json({ msg: "User not found" });
+        if (!user) return res.status(400).json({ msg: "User not found" , isSuccess : false});
 
         const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) return res.status(400).json({ msg: "Invalid credentials" });
+        if (!isMatch) return res.status(400).json({ msg: "Invalid credentials" , isSuccess : false});
 
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
             expiresIn: "1d",
@@ -71,7 +71,7 @@ Router.post("/login", async (req, res) => {
             sameSite: "Strict",
             maxAge: 24 * 60 * 60 * 1000, // 1 day
         });
-        res.json({ user: { id: user._id, name: user.name, email: user.email } });
+        res.json({ user: { id: user._id, name: user.name, email: user.email } , isSuccess : true });
 
     } catch (err) {
         res.status(500).json({ msg: "Server error" });
@@ -79,7 +79,17 @@ Router.post("/login", async (req, res) => {
 });
 
 
+Router.get("/check-auth", (req, res) => {
+  const token = req.cookies.token;
+  if (!token) return res.status(401).json({ isLoggedIn: false });
 
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    res.json({ isLoggedIn: true, user: decoded });
+  } catch {
+    res.status(401).json({ isLoggedIn: false });
+  }
+});
 
 
 

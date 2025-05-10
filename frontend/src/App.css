@@ -340,7 +340,7 @@
 }
 
 
-.login-page-cont .u-success{
+.login-page-cont .u-success , .login-page-cont .log-suc{
     position: absolute;
     top: -50px;
     left: 45%;
@@ -354,3 +354,19 @@
     border-radius: 7px;
     width: 300px;
 }
+
+.login-page-cont .log-err{
+    position: absolute;
+    top: -50px;
+    left: 45%;
+    transform: translate(-50%,-50%);
+    color: white;
+    background-color: red;
+    padding: 10px 20px;
+    font-weight: 600;
+    text-align: center;
+    margin: 10px;
+    border-radius: 7px;
+    width: 300px;
+}
+
