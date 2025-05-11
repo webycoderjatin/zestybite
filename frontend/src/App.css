@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-*{
+* {
     margin: 0px;
     padding: 0px;
-     font-family: "Inter", sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
-.navbar{
+.navbar {
     background-color: #ff5200;
     padding: 15px;
     display: flex;
@@ -14,18 +14,18 @@
     align-items: center;
 }
 
-.navbar .logo-cont{
+.navbar .logo-cont {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-.navbar .logo-cont h3{
+.navbar .logo-cont h3 {
     color: white;
 }
 
-.navbar .link-cont{
+.navbar .link-cont {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -33,7 +33,7 @@
 
 }
 
-.navbar .link-cont ul{
+.navbar .link-cont ul {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,22 +41,22 @@
     gap: 20px;
 }
 
-.navbar a{
+.navbar a {
     text-decoration: none;
     color: white;
     font-weight: 600;
 }
 
-.navbar .icon-cart{
+.navbar .icon-cart {
     margin-bottom: -2px;
     font-size: 20px;
 }
 
-.cart{
+.cart {
     position: relative;
 }
 
-.cart-num{
+.cart-num {
     position: absolute;
     top: -8px;
     right: -10px;
@@ -67,7 +67,7 @@
     padding: 2px 5px;
 }
 
-.navbar button{
+.navbar button {
     background-color: white;
     padding: 10px 20px;
     border: none;
@@ -78,7 +78,7 @@
     margin: 0px 20px;
 }
 
-.products-grid{
+.products-grid {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,7 +87,7 @@
     gap: 40px;
 }
 
-.card{
+.card {
     position: relative;
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
@@ -98,33 +98,34 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.card:hover{
+.card:hover {
     transform: scale(1.03);
 }
 
-.card h3{
+.card h3 {
     color: #414449;
 }
 
-.light{
+.light {
     color: gray;
 }
 
-.card h3 , .card p{
+.card h3,
+.card p {
     padding: 2px 10px;
 }
 
 
-.image-justify{
+.image-justify {
     object-fit: cover;
 }
 
-.desc-product{
+.desc-product {
     padding-bottom: 20px;
 
 }
 
-.order-btn{
+.order-btn {
     position: absolute;
     background-color: #ff5200;
     bottom: 0px;
@@ -136,7 +137,7 @@
     border-radius: 50px;
     cursor: pointer;
     width: 80%;
-    transform: translate(-50% , -50%);
+    transform: translate(-50%, -50%);
     text-align: center;
     line-height: 18px;
     font-size: 18px;
@@ -146,11 +147,11 @@
     gap: 5px;
 }
 
-.icon-s{
+.icon-s {
     font-size: 18px;
 }
 
-.order-page-cont{
+.order-page-cont {
     margin: 40px auto;
     text-align: center;
     display: flex;
@@ -159,24 +160,24 @@
     gap: 30px;
 }
 
-.order-page-cont h1{
+.order-page-cont h1 {
     color: #ff5200;
 }
 
-.order-page-cont .form-cont{
+.order-page-cont .form-cont {
     margin: 30px 0px;
     display: flex;
     justify-content: center;
-    align-items:start;
+    align-items: start;
     flex-direction: column;
 }
 
-.order-page-cont .form-cont label{
+.order-page-cont .form-cont label {
     margin-top: 10px;
     font-weight: 500;
 }
 
-.order-page-cont .form-cont input{
+.order-page-cont .form-cont input {
     border: 2px solid #ff5200;
     border-radius: 7px;
     padding: 5px;
@@ -184,11 +185,11 @@
     outline: none;
 }
 
-.order-page-cont .form-cont input:focus{
+.order-page-cont .form-cont input:focus {
     box-shadow: 0px 0px 0px 3px #ff51006e;
 }
 
-.order-page-cont .form-cont button{
+.order-page-cont .form-cont button {
     margin-top: 20px;
     background-color: #ff5200;
     padding: 7px 20px;
@@ -201,7 +202,7 @@
     cursor: pointer;
 }
 
-.order-page-cont textarea{
+.order-page-cont textarea {
     border: 2px solid #ff5200;
     border-radius: 5px;
     width: 100%;
@@ -210,11 +211,11 @@
     outline: none;
 }
 
-.order-page-cont textarea:focus{
+.order-page-cont textarea:focus {
     box-shadow: 0px 0px 0px 3px #ff51006e;
 }
 
-.order-page-cont .order-info{
+.order-page-cont .order-info {
     width: 250px;
     display: flex;
     justify-content: center;
@@ -224,28 +225,28 @@
     gap: 10px;
 }
 
-.order-page-cont .order-info img{
+.order-page-cont .order-info img {
     object-fit: cover;
     border-radius: 10px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.order-page-cont select{
+.order-page-cont select {
     outline: none;
     border: 2px solid #ff5200;
     border-radius: 5px;
     padding: 2px 3px;
 }
 
-.order-page-cont .order-info h3{
+.order-page-cont .order-info h3 {
     color: #ff5200;
 }
 
-.order-page-cont .order-info p{
+.order-page-cont .order-info p {
     color: gray;
 }
 
-.order-page-cont .order-info .quant-cont{
+.order-page-cont .order-info .quant-cont {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -253,7 +254,7 @@
     margin-top: 20px;
 }
 
-.order-page-cont .order-info .quant-cont select{
+.order-page-cont .order-info .quant-cont select {
     color: white;
     border: none;
     padding: 2px 3px;
@@ -262,41 +263,41 @@
     background-color: #ff5200;
 }
 
-.order-page-cont .order-info .border-line{
+.order-page-cont .order-info .border-line {
     width: 100%;
     border-top: 2px dashed rgb(212, 212, 212);
 }
 
-.login-page-cont{
+.login-page-cont {
     width: 400px;
     height: 400px;
     margin: 50px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     border-radius: 10px;
     padding: 20px;
 }
 
-.login-page-cont h3{
+.login-page-cont h3 {
     text-align: center;
     color: #ff5200;
     margin-bottom: 30px;
 }
 
-.login-page-cont form{
+.login-page-cont form {
     display: flex;
     justify-content: center;
     align-items: start;
     flex-direction: column;
 }
 
-.login-page-cont form label{
+.login-page-cont form label {
     color: #ff5100da;
 }
 
-.login-page-cont form input{
+.login-page-cont form input {
     padding: 5px;
     border: 2px solid #ff5200;
     border-radius: 7px;
@@ -306,11 +307,11 @@
     font-size: 18px;
 }
 
-.login-page-cont form input:focus{
+.login-page-cont form input:focus {
     box-shadow: 0px 0px 0px 3px #ff51006e;
 }
 
-.login-page-cont form button{
+.login-page-cont form button {
     color: white;
     background-color: #ff5200;
     padding: 10px 30px;
@@ -323,30 +324,33 @@
     cursor: pointer;
 }
 
-.login-page-cont .reg-link , .login-page-cont .login-link{
+.login-page-cont .reg-link,
+.login-page-cont .login-link {
     text-align: center;
     padding: 10px;
 }
 
-.login-page-cont .reg-link a , .login-page-cont .login-link a{
+.login-page-cont .reg-link a,
+.login-page-cont .login-link a {
     text-decoration: none;
     color: #ff5200;
     font-weight: 700;
 }
 
 
-.login-page-cont .u-exists{
+.login-page-cont .u-exists {
     color: red;
     font-weight: bold;
-    margin:-10px 0px 10px 0px;
+    margin: -10px 0px 10px 0px;
 }
 
 
-.login-page-cont .u-success , .login-page-cont .log-suc{
+.login-page-cont .u-success,
+.login-page-cont .log-suc {
     position: absolute;
     top: -50px;
     left: 45%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     color: white;
     background-color: rgb(14, 211, 14);
     padding: 10px 20px;
@@ -357,11 +361,11 @@
     width: 300px;
 }
 
-.login-page-cont .log-err{
+.login-page-cont .log-err {
     position: absolute;
     top: -50px;
     left: 45%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     color: white;
     background-color: red;
     padding: 10px 20px;
@@ -372,24 +376,24 @@
     width: 300px;
 }
 
-.profile-cont{
-    padding:3px 10px;
+.profile-cont {
+    padding: 3px 10px;
     background-color: white;
     border-radius: 100%;
     color: #ff5200;
     margin-left: 20px;
     font-size: 20px;
     box-shadow: 0px 0px 0px 3px rgba(255, 255, 255, 0.459);
-}   
+}
 
 
-.dash-side{
+.dash-side {
     background-color: rgba(255, 81, 0, 0.03);
     width: 200px;
     border-radius: 10px;
 }
 
-.dash-side ul{
+.dash-side ul {
     display: flex;
     justify-content: center;
     align-items: start;
@@ -399,20 +403,20 @@
     padding: 10px;
 }
 
-.dash-side ul li{
+.dash-side ul li {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-.dash-side a{
+.dash-side a {
     text-decoration: none;
     color: #ff5200;
     font-weight: 500;
 }
 
-.dash-side button{
+.dash-side button {
     background-color: red;
     color: white;
     padding: 10px 30px;
@@ -426,19 +430,19 @@
     font-weight: 600;
 }
 
-.dash-align{
+.dash-align {
     display: flex;
     margin: 80px;
     gap: 100px;
 }
 
-.u-info{
+.u-info {
     font-weight: 500;
     color: rgb(104, 104, 104);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.u-info-cont{
+.u-info-cont {
     display: flex;
     justify-content: start;
     align-items: start;
@@ -450,7 +454,7 @@
     width: 60%;
 }
 
-.u-info-cont button{
+.u-info-cont button {
     color: white;
     background-color: #ff5200;
     padding: 10px 30px;
@@ -461,7 +465,7 @@
     cursor: pointer;
 }
 
-.order-sucess{
+.order-sucess {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -469,7 +473,7 @@
     margin: 50px;
 }
 
-.order-sucess button{
+.order-sucess button {
     color: white;
     padding: 10px 30px;
     font-size: 18px;
@@ -478,27 +482,27 @@
     background-color: #ff5200;
 }
 
-.orange{
+.orange {
     color: #ff5200;
 }
 
-.gray{
+.gray {
     color: gray;
 }
 
-.order-p-align{
+.order-p-align {
     width: 50%;
     text-align: center;
     margin-bottom: 20px;
 }
 
-.order-detail-outer-cont{
+.order-detail-outer-cont {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.order-detail-cont{
+.order-detail-cont {
     width: 250px;
     height: 300px;
     margin: 10px;
@@ -506,9 +510,253 @@
     overflow: hidden;
 }
 
-.order-d-image{
+.order-d-image {
     width: 100%;
     height: 150px;
     border-radius: 10px;
     object-fit: cover;
+}
+
+
+.partners-nav {
+    background-color: #ff5200;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.partners-nav .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: white;
+}
+
+.partners-nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.partners-nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+.partners-hero {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.partners-hero .partners-hero-text {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.partners-hero .partners-hero-text h3 {
+    color: #ff7b00d7;
+}
+
+.partners-hero .partners-hero-text button {
+    color: white;
+    background-color: #ff5200;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 50px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.lottie-partners {
+    width: 50%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.partners-why {
+    position: relative;
+    margin: 150px 20px 40px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+.partners-why ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.partners-why h1 {
+    width: 100%;
+}
+
+.partners-why ul li {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #ff510034;
+    margin: 10px;
+    border-radius: 20px 0px 20px 0px;
+    color: #ff5200;
+    width: 100%;
+    text-align: start;
+    border: 2px dashed #ff5200;
+
+}
+
+.partners-why ul li:nth-child(2) {
+    position: relative;
+    left: 150px;
+}
+
+.partners-why ul li:nth-child(3) {
+    position: relative;
+    left: 300px;
+}
+
+.partners-why ul li:nth-child(4) {
+    position: relative;
+    left: 450px;
+}
+
+.partners-why ul li:nth-child(5) {
+    position: relative;
+    left: 600px;
+}
+
+.partners-who {
+    margin: 200px 40px 20px;
+
+}
+
+.partners-who .anime-outer-cont {
+    display: flex;
+    justify-content: space-between;
+}
+
+.partners-who .anime-cont {
+    width: 200px;
+    object-fit: cover;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.partners-join {
+    margin: 100px 40px;
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+    background-image: linear-gradient(to right, #ff5200, #ffae00);
+}
+
+.partners-join button {
+    margin-top: 20px;
+    background-color: white;
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: none;
+    color: #ff5200;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.del-part-form {
+    background-image: linear-gradient(to right, #ff5200, #ff3300);
+    padding: 40px;
+    overflow: hidden;
+    height: 87vh;
+    text-align: center;
+}
+
+.del-part-form form {
+    display: inline-flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    background-color: white;
+    width: 50%;
+    padding: 20px;
+    box-shadow: 0px 0px 0px 3px rgba(255, 255, 255, 0.459);
+    border-radius: 20px;
+}
+.del-part-form form input{
+    border: 2px solid #ff5200;
+    border-radius: 7px;
+    padding: 5px;
+    width: 95%;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.del-part-form form input:focus{
+    box-shadow: 0px 0px 0px 3px rgba(255, 81, 0, 0.3);
+}
+
+.radios{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.mb{
+    margin-bottom: 20px !important;
+}
+
+.radios input{
+    margin-bottom:0px !important;
+
+}
+
+.radios label{
+    padding: 0px;
+}
+
+select{
+    border: 2px solid #ff5200;
+    border-radius: 7px;
+    padding: 5px;
+    width: 95%;
+    outline: none;
+}
+
+select:focus{
+    box-shadow: 0px 0px 0px 3px rgba(255, 81, 0, 0.3);
+}
+
+.del-part-form h1{
+    margin: -10px 0px 10px;
+    color: white;
+}
+
+.del-part-form form button{
+    background-color: #ff5200;
+    color: white;
+    padding: 10px 50px;
+    align-self: center;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 50px;
+    margin-top: 30px;
+    cursor: pointer;
 }

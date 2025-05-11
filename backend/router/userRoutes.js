@@ -4,6 +4,7 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Order = require("../models/Orders")
+const Partners = require("../models/PartnerApplications")
 
 const Router = express.Router()
 
@@ -105,6 +106,19 @@ Router.post("/orders", async (req, res) => {
         res.json(err)
     }
 
+})
+
+Router.post("/delivery-partners-registration" , (req,res)=>{
+    const {fullName , phoneNumber , email , dateOfBirth , haveTwoWheeler , areaOfOperation} = req.body;
+    try{
+        const newDeliveryPartner = new Partners({
+            fullName , phoneNumber , email , dateOfBirth , haveTwoWheeler , areaOfOperation
+        })
+        newDeliveryPartner.save()
+        res.json({message : "Delivery Partner Registered Successfully" , isSuccess : true})
+    }catch(err){
+        res.json(err)
+    }
 })
 
 
