@@ -1,65 +1,76 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { MdFastfood } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import getUserInfoFromId from "../getUserInfoFromId";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
-  const getProduct = async () => {
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/products");
+        setProducts(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getProduct();
+  }, []);
+
+  const checkAuth = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/products");
-      setProducts(response.data);
+      const response = await axios.get("http://localhost:5000/check-auth", {
+        withCredentials: true,
+      });
+      const userData = await getUserInfoFromId(response.data.user.id);
+      return true
     } catch (err) {
-      console.log(err);
+      if (err.response?.status === 401) {
+        console.log("Not authorized");
+        navigate("/login");
+      } else {
+        console.log(err);
+      }
+      return false;
     }
   };
 
   const handleOrder = async (id) => {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      alert("Please login to continue");
-      navigate("/login"); // Redirect to login page
-      return;
-    }
+    const isAuth = await checkAuth();
+    if (!isAuth) return;
 
     try {
-      await axios.get(`http://localhost:5000/admin/order/${id}`);
-      console.log("Succesfull transfered order");
+      await axios.get(`http://localhost:5000/order/${id}`);
+      console.log("Successfully transferred order");
+      navigate(`/order/${id}`);
     } catch (err) {
       console.log(err);
     }
-    navigate(`/order/${id}`);
   };
-
-  getProduct();
 
   return (
     <div className="products-grid">
-      {products.map((product, index) => {
-        return (
-          <div className="card" key={index}>
-            <img
-              src={product.imageURL}
-              height={200}
-              width="100%"
-              className="image-justify"
-            />
-            <h3>{product.name}</h3>
-            <p className="desc-product light">{product.description}</p>
-            <b>
-              <p>₹ {product.price}</p>
-            </b>
-            <button
-              className="order-btn"
-              onClick={() => handleOrder(product._id)}
-            >
-              <span>Order Now</span> <MdFastfood className="icon-s" />
-            </button>
-          </div>
-        );
-      })}
+      {products.map((product, index) => (
+        <div className="card" key={index}>
+          <img
+            src={product.imageURL}
+            height={200}
+            width="100%"
+            className="image-justify"
+          />
+          <h3>{product.name}</h3>
+          <p className="desc-product light">{product.description}</p>
+          <b>
+            <p>₹ {product.price}</p>
+          </b>
+          <button className="order-btn" onClick={() => handleOrder(product._id)}>
+            <span>Order Now</span> <MdFastfood className="icon-s" />
+          </button>
+        </div>
+      ))}
     </div>
   );
 };

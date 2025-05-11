@@ -3,6 +3,7 @@ const Product = require("../models/Products")
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const Order = require("../models/Orders")
 
 const Router = express.Router()
 
@@ -39,13 +40,13 @@ Router.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
     try {
         const exists = await User.findOne({ email });
-        if (exists) return res.status(400).json({ msg: "User already exists" , status : false});
+        if (exists) return res.status(400).json({ msg: "User already exists", status: false });
 
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ name, email, password: hashedPassword });
         await newUser.save();
 
-        res.status(201).json({ msg: "User registered" , status : true});
+        res.status(201).json({ msg: "User registered", status: true });
     } catch (err) {
         res.status(500).json({ msg: "Server error" });
     }
@@ -56,10 +57,10 @@ Router.post("/login", async (req, res) => {
     const { email, password } = req.body;
     try {
         const user = await User.findOne({ email });
-        if (!user) return res.status(400).json({ msg: "User not found" , isSuccess : false});
+        if (!user) return res.status(400).json({ msg: "User not found", isSuccess: false });
 
         const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) return res.status(400).json({ msg: "Invalid credentials" , isSuccess : false});
+        if (!isMatch) return res.status(400).json({ msg: "Invalid credentials", isSuccess: false });
 
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
             expiresIn: "1d",
@@ -71,7 +72,7 @@ Router.post("/login", async (req, res) => {
             sameSite: "Strict",
             maxAge: 24 * 60 * 60 * 1000, // 1 day
         });
-        res.json({ user: { id: user._id, name: user.name, email: user.email } , isSuccess : true });
+        res.json({ user: { id: user._id, name: user.name, email: user.email }, isSuccess: true });
 
     } catch (err) {
         res.status(500).json({ msg: "Server error" });
@@ -80,16 +81,31 @@ Router.post("/login", async (req, res) => {
 
 
 Router.get("/check-auth", (req, res) => {
-  const token = req.cookies.token;
-  if (!token) return res.status(401).json({ isLoggedIn: false });
+    console.log("Check Auth API Route Requested")
+    const token = req.cookies.token;
+    if (!token) return res.status(401).json({ isLoggedIn: false });
 
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    res.json({ isLoggedIn: true, user: decoded });
-  } catch {
-    res.status(401).json({ isLoggedIn: false });
-  }
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        res.json({ isLoggedIn: true, user: decoded });
+    } catch {
+        res.status(401).json({ isLoggedIn: false });
+    }
 });
+
+Router.post("/orders", async (req, res) => {
+    const { uId } = req.body
+    try {
+
+        const Orders = await Order.find({ userId : uId })
+        if (!Orders) { res.json({ mesg: "Orders not found" }) }
+
+        res.json(Orders)
+    } catch (err) {
+        res.json(err)
+    }
+
+})
 
 
 

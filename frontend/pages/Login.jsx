@@ -16,7 +16,7 @@ const Login = () => {
     
     e.preventDefault();
     axios
-      .post("http://localhost:5000/login", { email, password })
+      .post("http://localhost:5000/login", { email, password }, { withCredentials: true })
       .then((response) => {
         if (response.data.isSuccess) {
           setIsSuc(true);

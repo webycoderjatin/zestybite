@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie"; // Import cookie library
+import getUserId from "../getUserId";
 
 const Order = () => {
   const [name, setName] = useState("");
@@ -15,14 +16,6 @@ const Order = () => {
   const navigate = useNavigate(); // For navigation if not logged in
 
   const productId = location.pathname.split("/").filter(Boolean).pop();
-
-  // Check if the user is logged in by verifying the token in cookies
-  useEffect(() => {
-    const token = Cookies.get("token"); // Retrieve the token from cookies
-    if (!token) {
-      navigate("/login"); // Redirect to login if not logged in
-    }
-  }, [navigate]);
 
   const getProductData = async () => {
     try {
@@ -65,8 +58,47 @@ const Order = () => {
         name: "ZestyBites",
         description: "Order Payment",
         order_id: order.id,
-        handler: function (response) {
-          alert("Payment ID: " + response.razorpay_payment_id);
+        handler: async function (response) {
+          const verification = await axios.post(
+            "http://localhost:5000/pay/verify-payment",
+            {
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+            }
+          );
+          if (verification.data.success) {
+            await axios.post("http://localhost:5000/pay/save-order", {
+              userId: await getUserId(),
+              items: [
+                {
+                  name: productData.name,
+                  quantity: quant,
+                  price: productData.price * quant,
+                  image: productData.imageURL,
+                  _id: productData._id,
+                },
+              ],
+              totalAmount: finalPrice,
+              paymentStatus: "Paid",
+              paymentMethod: "Online",
+              orderStatus: "Processing",
+              address: {
+                name,
+                phnNum,
+                location: address,
+                instructions: specInst,
+              },
+              orderedAt: new Date(),
+              deliveredAt: null,
+              paymentId: response.razorpay_payment_id,
+            });
+
+            alert("Payment Success");
+            navigate("/order-success");
+          } else {
+            alert("Payment Failed!");
+          }
         },
         prefill: {
           name: name,

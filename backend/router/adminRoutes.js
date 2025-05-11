@@ -1,6 +1,7 @@
 const express = require("express")
 const Admin = express.Router()
 const Product = require("../models/Products")
+const User = require("../models/User")
 
 Admin.get("/", (req, res) => {
     res.send("Admin page")
@@ -24,7 +25,16 @@ Admin.post("/addProducts", async (req, res) => {
 
 })
 
-
+Admin.get("/u/:id",async (req,res)=>{
+    const id = req.params.id
+    try{
+        const UserData = await User.findById(id)
+        if(!UserData){ res.json(400).send({msg:"User Not Found"})}
+        res.json(UserData)
+    }catch(err){
+        res.json(err)
+    }
+})
 
 
 
