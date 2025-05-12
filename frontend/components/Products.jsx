@@ -24,7 +24,7 @@ const Products = () => {
 
   const checkAuth = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/check-auth", {
+      const response = await axios.get(`${baseURL}/check-auth`, {
         withCredentials: true,
       });
       const userData = await getUserInfoFromId(response.data.user.id);
@@ -45,7 +45,7 @@ const Products = () => {
     if (!isAuth) return;
 
     try {
-      await axios.get(`http://localhost:5000/order/${id}`);
+      await axios.get(`${baseURL}/order/${id}`);
       console.log("Successfully transferred order");
       navigate(`/order/${id}`);
     } catch (err) {
