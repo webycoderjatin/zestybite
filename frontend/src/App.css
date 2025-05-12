@@ -12,6 +12,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+}
+
+.navbar .loginBtn{
+    cursor: pointer;
 }
 
 .navbar .logo-cont {
@@ -718,6 +723,10 @@
     margin-top: 5px;
 }
 
+.navbar .nav-ham{
+    display: none;
+}
+
 .mb{
     margin-bottom: 20px !important;
 }
@@ -759,4 +768,136 @@ select:focus{
     border-radius: 50px;
     margin-top: 30px;
     cursor: pointer;
+}
+
+/* Navbar Responsive Classes */
+@media screen and (max-width: 425px) {
+    .navbar{
+        width: 100%;
+    }
+
+    .navbar .link-cont ul{
+        display: none;
+    }
+
+
+
+    .navbar .nav-ham{
+        display: inline-block;
+        font-size: 25px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .navbar .link-cont ul{
+        display: none;
+        width: 150px;
+        justify-content: start;
+        align-items: start;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #ff5200;
+        padding: 20px;
+        z-index: 5;
+        box-shadow: rgba(29, 29, 29, 0.678) 0px 8px 24px;
+    }
+
+    .navbar .link-cont ul li{
+        padding: 10px 40px 10px 0px;
+    }
+
+    .cart-num {
+        right: 120px;
+        top:5px;
+    }
+
+    .products-grid{
+        flex-wrap: wrap;
+        margin: 20px;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .products-grid .card{
+        width: 200px;
+    height: 300px;
+    border-radius: 8px;
+    }
+
+    .products-grid .card img{
+        height: 120px;
+    }
+
+    .products-grid .card h3{
+        font-size: 15px;
+    }
+
+    .products-grid .card p{
+        font-size: 14px;
+    }
+
+    .order-btn{
+        font-size: 13px;
+    }
+
+    .login-page-cont{
+        width: 350px;
+        height: 350px;
+        margin: 0px;
+        position: relative;
+        top: 250px;
+        left: 230px;
+    border-radius: 10px;
+    padding: 20px;
+    }
+
+    .navbar .loginBtnCont{
+        display: none;
+    }
+
+    .profile-cont{
+    margin-left: 0px;
+    width: 13px;
+    }
+
+    .order-page-cont{
+        flex-direction: column;
+    }
+
+    .order-sucess{
+        width: 100%;
+        margin: 0px;
+        position: absolute;
+        top: 60%;
+        left: 55%;
+        transform: translate(-50%,-50%);
+    }
+
+    .order-sucess p{
+        width: 350px;
+    }
+
+    .dash-align{
+        margin: 20px;
+        gap: 20px;
+    }
+
+    .dash-side{
+        width: 200px;
+    }
+
+    .u-info-cont{
+        width: 100px;
+        background-color: white;
+        /* background-color: red; */
+    }
+
+    .u-info-cont button{
+        font-size: 13px;
+        width: 150px;
+    }
+
+
 }

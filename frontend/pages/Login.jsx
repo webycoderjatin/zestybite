@@ -41,7 +41,7 @@ const Login = () => {
         console.log(response.data);
       })
       .catch((error) => {
-        console.error("Login error:", err.response?.data || err.message);
+        console.error("Login error:", error.response?.data || error.message);
         if (error.response && error.response.data) {
           if (error.response.data.msg === "Invalid credentials") {
             setIsInvalid(true);

@@ -14,7 +14,7 @@ const PORT = process.env.PORT
 dotenv.config()
 
 
-app.use(cors({ origin: process.env.FRONTEND_ORIGIN ,  credentials: true}));  // Frontend URL (React default port)
+app.use(cors({ origin: [process.env.FRONTEND_ORIGIN, 'https://zestybite-final-render.vercel.app'] ,  credentials: true}));  // Frontend URL (React default port)
 
 app.use(cookieParser());
 app.use(bodyParser.json())
