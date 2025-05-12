@@ -17,6 +17,7 @@ const Login = () => {
     let count = 2;
     
     e.preventDefault();
+    console.log("Login submitted", email, password);
     axios
       .post(`${baseURL}/login`, { email, password }, { withCredentials: true })
       .then((response) => {
@@ -24,6 +25,7 @@ const Login = () => {
           setIsSuc(true);
           setIsExists(true);
           setIsInvalid(false);
+          console.log("Login Success : " , response.data)
 
 
           const counter = setInterval(() => {
@@ -39,7 +41,7 @@ const Login = () => {
         console.log(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        console.error("Login error:", err.response?.data || err.message);
         if (error.response && error.response.data) {
           if (error.response.data.msg === "Invalid credentials") {
             setIsInvalid(true);
