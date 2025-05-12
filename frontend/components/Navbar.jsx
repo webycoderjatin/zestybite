@@ -38,7 +38,7 @@ const Navbar = () => {
         <ul>
             <a href=""><li>Home</li></a>
             <a href="/"><li>Menu</li></a>
-            <a href=""><li>About</li></a>
+            <a href="/about"><li>About</li></a>
             <a href=""><li>Contact</li></a>
             <a href=""><li className="cart"><FaCartShopping className="icon-cart"/> <span className="cart-num">0</span> </li></a>
             <a href=""><div className="profile-cont">{user ? user.name[0] : ""}</div></a>

@@ -12,6 +12,7 @@ import OrderDetails from "../components/OrderDetails";
 import OrderSuccess from "../pages/OrderSuccess";
 import DeliveryPartners from "../pages/DeliveryPartners";
 import DeliveryPartnersForm from "../pages/DeliveryPartnersForm";
+import About from "../pages/About";
 
 const App = () => {
   const location = useLocation()
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/order/:id" element={<Order />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/about" element={<About />} />
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="userInfo" element={<UserInfo />} />
           <Route path="orders" element={<OrderDetails />} />
