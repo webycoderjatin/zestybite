@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const baseURL = import.meta.env.VITE_API_URL;
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +18,7 @@ const Login = () => {
     
     e.preventDefault();
     axios
-      .post("http://localhost:5000/login", { email, password }, { withCredentials: true })
+      .post(`${baseURL}/login`, { email, password }, { withCredentials: true })
       .then((response) => {
         if (response.data.isSuccess) {
           setIsSuc(true);

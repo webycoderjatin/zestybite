@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+const baseURL = import.meta.env.VITE_API_URL;
+
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -11,7 +13,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const status = await axios.post("http://localhost:5000/register", {
+      const status = await axios.post(`${baseURL}/register`, {
         name,
         email,
         password,

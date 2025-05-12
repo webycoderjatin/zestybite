@@ -4,6 +4,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie"; // Import cookie library
 import getUserId from "../getUserId";
 
+const baseURL = import.meta.env.VITE_API_URL;
+
 const Order = () => {
   const [name, setName] = useState("");
   const [phnNum, setPhnNum] = useState("");
@@ -20,7 +22,7 @@ const Order = () => {
   const getProductData = async () => {
     try {
       const p_data = await axios.get(
-        `http://localhost:5000/order/${productId}`
+        `${baseURL}/order/${productId}`
       );
       setProductData(p_data.data);
       console.log(p_data.data);
@@ -45,7 +47,7 @@ const Order = () => {
     try {
       // Create order on backend
       const { data: order } = await axios.post(
-        "http://localhost:5000/pay/create-order",
+        `${baseURL}/pay/create-order`,
         {
           amount: finalPrice,
         }
@@ -60,7 +62,7 @@ const Order = () => {
         order_id: order.id,
         handler: async function (response) {
           const verification = await axios.post(
-            "http://localhost:5000/pay/verify-payment",
+            `${baseURL}/pay/verify-payment`,
             {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
@@ -68,7 +70,7 @@ const Order = () => {
             }
           );
           if (verification.data.success) {
-            await axios.post("http://localhost:5000/pay/save-order", {
+            await axios.post(`${baseURL}/pay/save-order`, {
               userId: await getUserId(),
               items: [
                 {

@@ -4,13 +4,15 @@ import { FaCartShopping } from "react-icons/fa6";
 import axios from 'axios'
 import getUserInfoFromId from "../getUserInfoFromId";
 
+const baseURL = import.meta.env.VITE_API_URL;
+
 const Navbar = () => {
   const [isLogIn , setIsLogIn] = useState(false)
   const [user , setUser] = useState("")
 
   const checkAuth = async () => {
       await axios
-        .get("http://localhost:5000/check-auth", { withCredentials: true })
+        .get(`${baseURL}/check-auth`, { withCredentials: true })
         .then(async (response) => {
           setIsLogIn(true)
           setUser(await getUserInfoFromId(response.data.user.id))

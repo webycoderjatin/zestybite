@@ -1,8 +1,10 @@
 import axios from 'axios';
 
+const baseURL = import.meta.env.VITE_API_URL;
+
 const getUserId = async () => {
   try {
-    const response = await axios.get("http://localhost:5000/check-auth", {
+    const response = await axios.get(`${baseURL}/check-auth`, {
       withCredentials: true,
     });
     return response.data.user.id;

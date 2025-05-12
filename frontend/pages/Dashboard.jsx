@@ -6,13 +6,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DashBoardSideBar from "../components/DashBoardSideBar";
 import { Outlet } from "react-router-dom";
 
+const baseURL = import.meta.env.VITE_API_URL;
+
 const Dashboard = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
 
   const checkAuth = async () => {
     await axios
-      .get("http://localhost:5000/check-auth", { withCredentials: true })
+      .get(`${baseURL}/check-auth`, { withCredentials: true })
       .then(async (response) => {
         const userData = await getUserInfoFromId(response.data.user.id);
         console.log(userData);

@@ -1,13 +1,14 @@
 import React, { useState , useEffect } from 'react';
 import axios from 'axios';
 import getUserId from '../getUserId';
+const baseURL = import.meta.env.VITE_API_URL;
 
 const OrderDetails = () => {
 
     const [orders , setOrders] = useState([])
 
     const getOrders = async ()=>{
-        const orders = await axios.post("http://localhost:5000/orders",{
+        const orders = await axios.post(`${baseURL}/orders`,{
             uId : await getUserId()
         })
         .then((response)=>{

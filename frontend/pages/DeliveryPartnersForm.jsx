@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from 'axios'
 
+const baseURL = import.meta.env.VITE_API_URL;
+
 const DeliveryPartnersForm = () => {
     const [name , setName] = useState("")
     const [phnNum , setPhnNum] = useState("")
@@ -11,7 +13,7 @@ const DeliveryPartnersForm = () => {
 
     const handleSubmit = async (e)=>{
         e.preventDefault()
-        axios.post("http://localhost:5000/delivery-partners-registration",{
+        axios.post(`${baseURL}/delivery-partners-registration`,{
             fullName:name,
             phoneNumber:phnNum,
             email:email,

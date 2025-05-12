@@ -4,6 +4,8 @@ import { MdFastfood } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import getUserInfoFromId from "../getUserInfoFromId";
 
+const baseURL = import.meta.env.VITE_API_URL;
+
 const Products = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
@@ -11,7 +13,7 @@ const Products = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/products");
+        const response = await axios.get(`${baseURL}/products`);
         setProducts(response.data);
       } catch (err) {
         console.log(err);

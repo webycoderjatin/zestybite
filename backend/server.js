@@ -9,12 +9,12 @@ const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser");
 
 const app = express()
-const PORT = 5000
+const PORT = process.env.PORT
 
 dotenv.config()
 
 
-app.use(cors({ origin: "http://localhost:5173" ,  credentials: true}));  // Frontend URL (React default port)
+app.use(cors({ origin: process.env.FRONTEND_ORIGIN ,  credentials: true}));  // Frontend URL (React default port)
 
 app.use(cookieParser());
 app.use(bodyParser.json())
